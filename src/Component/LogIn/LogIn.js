@@ -83,7 +83,7 @@ const LogIn = () => {
 
       <Form.Item>
         <Button htmlType="submit" block>
-          LogIn
+          Login
         </Button>
       </Form.Item>
 

@@ -5,7 +5,7 @@ const Navbar = () => {
     return(
         <div className="navbar">
             <div>
-                <h3>ATools</h3>
+                <h2>ATools<span>.</span></h2>
             </div>
             <div>
                 <Button>Start free trail</Button>
