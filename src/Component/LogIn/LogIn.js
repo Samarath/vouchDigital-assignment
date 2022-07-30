@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 const LogIn = () => {
 
-  const [message, setMessage] = useState(['','']);
+  const [message, setMessage] = useState(['','', '']);
 
   const onFinish = (values) => {
   
@@ -24,16 +24,24 @@ const LogIn = () => {
           if(response.ok){
             return response.json();
           }
-          setMessage(['error login', 'red'])
+          setMessage(['error login', 'red', 'msg']);
+          removeMsg();
         })
         .then(data => {
            console.log(data, 'data')
            if(data !== undefined){
-              setMessage(['sucess', 'green'])
+              setMessage(['sucess', 'green', 'msg'])
+              removeMsg();
            }
         });
 
   };
+
+   const removeMsg = () => {
+     setTimeout(() => {
+       setMessage(['', '']);
+     }, 3000)
+   }
 
   return (
     <div className='login'>
@@ -89,12 +97,12 @@ const LogIn = () => {
             Forgot password
           </a>
       </Form.Item>
-      <div style={{color: 'white', backgroundColor: message[1]}}>{message[0]}</div>
+      
     </Form>
-
+         <div style={{color: 'white', backgroundColor: message[1]}} className={message[2]}>{message[0]}!</div>
         </div>
             
-        <div className='login_img'>
+        <div className='login_img msg'>
           hello
         </div>
     </div>
